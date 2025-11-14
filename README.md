@@ -7,6 +7,7 @@ A modern, full-featured productivity application built with Next.js 14, featurin
 - **📋 Todo List**: Create, edit, and manage tasks with priority levels and filtering
 - **🎯 Kanban Board**: Drag-and-drop cards across customizable columns (To Do, In Progress, Done)
 - **📅 Calendar**: Month view calendar with event creation and management
+- **🌙 Dark Mode**: Toggle between light and dark themes with persistent preference
 - **💾 Local Storage**: All data persists in browser localStorage
 - **📱 Responsive Design**: Works seamlessly on desktop and mobile devices
 - **🎨 Modern UI**: Clean, professional design with subtle animations
@@ -94,6 +95,13 @@ src/
 - Color-coded events
 - Click any day to create an event
 - View multiple events per day
+
+### Dark Mode
+- Toggle button in top-right corner (moon/sun icon)
+- Smooth transitions between light and dark themes
+- Preference saved to localStorage
+- Respects system preference on first visit
+- All components fully themed for both modes
 
 ## Data Storage
 
