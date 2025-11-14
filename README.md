@@ -4,7 +4,7 @@ A modern, full-featured productivity application built with Next.js 14, featurin
 
 ## 🚀 Live Demo
 
-**[View Live App on Vercel →](https://full-productivity-app.vercel.app)**
+**[View Live App on Vercel →](https://full-suite-productivity.vercel.app)**
 
 ## Features
 
