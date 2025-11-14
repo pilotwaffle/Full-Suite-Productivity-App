@@ -2,6 +2,10 @@
 
 A modern, full-featured productivity application built with Next.js 14, featuring a Kanban board, todo list, and calendar.
 
+## 🚀 Live Demo
+
+**[View Live App on Vercel →](https://full-productivity-app.vercel.app)**
+
 ## Features
 
 - **📋 Todo List**: Create, edit, and manage tasks with priority levels and filtering
