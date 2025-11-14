@@ -34,7 +34,7 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
       ref={setNodeRef}
       style={style}
       className={cn(
-        'group bg-white border border-slate-200 rounded-lg p-4 cursor-default hover:shadow-md transition-shadow',
+        'group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-4 cursor-default hover:shadow-md transition-shadow',
         isDragging && 'opacity-50'
       )}
     >
@@ -43,7 +43,7 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
         <button
           {...attributes}
           {...listeners}
-          className="mt-1 text-slate-400 hover:text-slate-600 cursor-grab active:cursor-grabbing opacity-0 group-hover:opacity-100 transition-opacity"
+          className="mt-1 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 cursor-grab active:cursor-grabbing opacity-0 group-hover:opacity-100 transition-opacity"
           aria-label="Drag card"
         >
           <GripVertical className="w-4 h-4" />
@@ -51,11 +51,11 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <h3 className="text-base font-medium text-slate-900 mb-1">
+          <h3 className="text-base font-medium text-slate-900 dark:text-white mb-1">
             {card.title}
           </h3>
           {card.description && (
-            <p className="text-sm text-slate-600 mb-3 line-clamp-2">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">
               {card.description}
             </p>
           )}
@@ -70,7 +70,7 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
               {card.priority}
             </span>
             {card.dueDate && (
-              <span className="inline-flex items-center gap-1 text-xs text-slate-600">
+              <span className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400">
                 <CalendarIcon className="w-3 h-3" />
                 {formatDate(card.dueDate, 'MMM d')}
               </span>
@@ -82,14 +82,14 @@ export function KanbanCard({ card, onEdit, onDelete }: KanbanCardProps) {
         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={() => onEdit(card)}
-            className="p-1.5 rounded-md text-slate-400 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+            className="p-1.5 rounded-md text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-colors"
             aria-label="Edit card"
           >
             <Edit2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => onDelete(card.id)}
-            className="p-1.5 rounded-md text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+            className="p-1.5 rounded-md text-slate-400 dark:text-slate-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
             aria-label="Delete card"
           >
             <Trash2 className="w-4 h-4" />

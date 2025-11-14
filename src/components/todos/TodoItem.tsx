@@ -47,7 +47,7 @@ export function TodoItem({ todo }: TodoItemProps) {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="bg-white border border-slate-200 rounded-lg p-4"
+        className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-4"
       >
         <div className="space-y-3">
           <Input
@@ -91,7 +91,7 @@ export function TodoItem({ todo }: TodoItemProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -100 }}
       className={cn(
-        'group bg-white border border-slate-200 rounded-lg p-4 hover:shadow-md transition-shadow',
+        'group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-4 hover:shadow-md transition-shadow',
         todo.completed && 'opacity-60'
       )}
     >
@@ -103,7 +103,7 @@ export function TodoItem({ todo }: TodoItemProps) {
             'mt-0.5 w-5 h-5 rounded border-2 flex items-center justify-center transition-all flex-shrink-0',
             todo.completed
               ? 'bg-primary-600 border-primary-600'
-              : 'border-slate-300 hover:border-primary-500'
+              : 'border-slate-300 dark:border-slate-600 hover:border-primary-500'
           )}
         >
           {todo.completed && <Check className="w-3 h-3 text-white" />}
@@ -113,14 +113,14 @@ export function TodoItem({ todo }: TodoItemProps) {
         <div className="flex-1 min-w-0">
           <h3
             className={cn(
-              'text-base font-medium text-slate-900',
-              todo.completed && 'line-through text-slate-500'
+              'text-base font-medium text-slate-900 dark:text-white',
+              todo.completed && 'line-through text-slate-500 dark:text-slate-400'
             )}
           >
             {todo.title}
           </h3>
           {todo.description && (
-            <p className="text-sm text-slate-600 mt-1">{todo.description}</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{todo.description}</p>
           )}
           <div className="flex items-center gap-2 mt-2">
             <span
@@ -138,14 +138,14 @@ export function TodoItem({ todo }: TodoItemProps) {
         <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
           <button
             onClick={() => setIsEditing(true)}
-            className="p-2 rounded-md text-slate-400 hover:text-primary-600 hover:bg-primary-50 transition-colors"
+            className="p-2 rounded-md text-slate-400 dark:text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 transition-colors"
             aria-label="Edit todo"
           >
             <Edit2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => deleteTodo(todo.id)}
-            className="p-2 rounded-md text-slate-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+            className="p-2 rounded-md text-slate-400 dark:text-slate-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/30 transition-colors"
             aria-label="Delete todo"
           >
             <Trash2 className="w-4 h-4" />

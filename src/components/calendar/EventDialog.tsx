@@ -134,9 +134,9 @@ export function EventDialog({
               type="checkbox"
               id="allDay"
               {...register('allDay')}
-              className="w-4 h-4 text-primary-600 border-slate-300 rounded focus:ring-primary-500"
+              className="w-4 h-4 text-primary-600 border-slate-300 dark:border-slate-600 rounded focus:ring-primary-500 dark:focus:ring-primary-400"
             />
-            <label htmlFor="allDay" className="text-sm font-medium text-slate-700">
+            <label htmlFor="allDay" className="text-sm font-medium text-slate-700 dark:text-slate-300">
               All day
             </label>
           </div>
@@ -162,7 +162,7 @@ export function EventDialog({
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-2">
+            <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
               Color
             </label>
             <div className="flex gap-2">

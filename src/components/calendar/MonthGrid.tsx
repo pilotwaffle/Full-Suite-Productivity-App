@@ -22,13 +22,13 @@ export function MonthGrid({
   const days = getMonthGrid(currentMonth.getFullYear(), currentMonth.getMonth())
 
   return (
-    <div className="bg-white border border-slate-200 rounded-lg overflow-hidden">
+    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
       {/* Week day headers */}
-      <div className="grid grid-cols-7 border-b border-slate-200">
+      <div className="grid grid-cols-7 border-b border-slate-200 dark:border-slate-700">
         {WEEK_DAYS.map((day) => (
           <div
             key={day}
-            className="py-3 text-center text-sm font-semibold text-slate-700 bg-slate-50"
+            className="py-3 text-center text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800"
           >
             {day}
           </div>

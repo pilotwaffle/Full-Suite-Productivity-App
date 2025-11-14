@@ -53,20 +53,20 @@ export function CalendarView() {
         {/* Calendar Controls */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
               {format(currentMonth, 'MMMM yyyy')}
             </h2>
             <div className="flex gap-1">
               <button
                 onClick={handlePrevMonth}
-                className="p-2 rounded-md text-slate-600 hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 aria-label="Previous month"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNextMonth}
-                className="p-2 rounded-md text-slate-600 hover:bg-slate-100 transition-colors"
+                className="p-2 rounded-md text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                 aria-label="Next month"
               >
                 <ChevronRight className="w-5 h-5" />
