@@ -15,7 +15,7 @@ export function AppShell({ children }: AppShellProps) {
   const isTablet = useIsTablet()
 
   return (
-    <div className="flex h-screen bg-slate-50">
+    <div className="flex h-screen bg-slate-50 dark:bg-slate-950 transition-colors">
       {/* Desktop Sidebar */}
       {!isTablet && <Sidebar />}
 
@@ -23,7 +23,7 @@ export function AppShell({ children }: AppShellProps) {
       {isTablet && sidebarOpen && (
         <>
           <div
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-black/50 dark:bg-black/70 z-40"
             onClick={() => setSidebarOpen(false)}
           />
           <Sidebar className="fixed left-0 top-0 bottom-0 z-50" />
@@ -37,7 +37,7 @@ export function AppShell({ children }: AppShellProps) {
           onMenuClick={() => setSidebarOpen(!sidebarOpen)}
         />
 
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950">
           <div className="container mx-auto px-6 py-8 max-w-7xl">
             {children}
           </div>

@@ -24,31 +24,31 @@ export default function DashboardPage() {
       value: activeTodos,
       icon: CheckSquare,
       href: '/todos',
-      color: 'text-primary-600 bg-primary-100',
+      color: 'text-primary-600 dark:text-primary-400 bg-primary-100 dark:bg-primary-900/30',
     },
     {
       name: 'In Progress',
       value: inProgressCards,
       icon: Columns3,
       href: '/kanban',
-      color: 'text-accent-600 bg-accent-100',
+      color: 'text-accent-600 dark:text-accent-400 bg-accent-100 dark:bg-accent-900/30',
     },
     {
       name: 'Upcoming Events',
       value: upcomingEvents,
       icon: Calendar,
       href: '/calendar',
-      color: 'text-green-600 bg-green-100',
+      color: 'text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30',
     },
   ]
 
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900 mb-2">
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
           Dashboard
         </h1>
-        <p className="text-slate-600">
+        <p className="text-slate-600 dark:text-slate-400">
           Welcome back! Here's an overview of your productivity.
         </p>
       </div>
@@ -59,14 +59,14 @@ export default function DashboardPage() {
           <Link
             key={stat.name}
             href={stat.href}
-            className="bg-white rounded-lg p-6 border border-slate-200 hover:border-primary-300 hover:shadow-md transition-all group"
+            className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-700 hover:border-primary-300 dark:hover:border-primary-600 hover:shadow-md transition-all group"
           >
             <div className="flex items-start justify-between">
               <div>
-                <p className="text-sm font-medium text-slate-600 mb-1">
+                <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mb-1">
                   {stat.name}
                 </p>
-                <p className="text-3xl font-bold text-slate-900">
+                <p className="text-3xl font-bold text-slate-900 dark:text-white">
                   {stat.value}
                 </p>
               </div>
@@ -74,7 +74,7 @@ export default function DashboardPage() {
                 <stat.icon className="w-6 h-6" />
               </div>
             </div>
-            <div className="mt-4 flex items-center text-sm text-primary-600 group-hover:text-primary-700">
+            <div className="mt-4 flex items-center text-sm text-primary-600 dark:text-primary-400 group-hover:text-primary-700 dark:group-hover:text-primary-300">
               View all
               <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -83,8 +83,8 @@ export default function DashboardPage() {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-lg p-6 border border-slate-200">
-        <h2 className="text-lg font-semibold text-slate-900 mb-4">
+      <div className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

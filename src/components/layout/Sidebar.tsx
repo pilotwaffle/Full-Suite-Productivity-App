@@ -22,13 +22,13 @@ export function Sidebar({ className }: SidebarProps) {
   return (
     <aside
       className={cn(
-        'w-64 bg-white border-r border-slate-200 flex flex-col',
+        'w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-700 flex flex-col transition-colors',
         className
       )}
     >
       {/* Logo/Brand */}
-      <div className="h-16 px-6 flex items-center border-b border-slate-200">
-        <h1 className="text-xl font-semibold text-slate-900">
+      <div className="h-16 px-6 flex items-center border-b border-slate-200 dark:border-slate-700">
+        <h1 className="text-xl font-semibold text-slate-900 dark:text-white">
           Productivity Suite
         </h1>
       </div>
@@ -47,8 +47,8 @@ export function Sidebar({ className }: SidebarProps) {
               className={cn(
                 'flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors',
                 isActive
-                  ? 'bg-primary-50 text-primary-700'
-                  : 'text-slate-700 hover:bg-slate-100'
+                  ? 'bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-400'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
               )}
             >
               <item.icon className="w-5 h-5" />
@@ -59,8 +59,8 @@ export function Sidebar({ className }: SidebarProps) {
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-slate-200">
-        <p className="text-xs text-slate-500 text-center">
+      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
+        <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
           Version 1.0.0
         </p>
       </div>
