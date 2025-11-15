@@ -14,6 +14,8 @@ import {
   isSameDay,
   addMonths,
   subMonths,
+  addWeeks,
+  subWeeks,
 } from 'date-fns'
 
 export {
@@ -32,6 +34,8 @@ export {
   isSameDay,
   addMonths,
   subMonths,
+  addWeeks,
+  subWeeks,
 }
 
 export function formatDate(date: Date | number, formatStr: string = 'PPP'): string {
