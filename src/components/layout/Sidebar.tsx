@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, CheckSquare, Columns3, Calendar } from 'lucide-react'
+import { LayoutDashboard, CheckSquare, Columns3, Calendar, Sparkles } from 'lucide-react'
 import { cn } from '@/utils/classnames'
 
 const navigation = [
+  { name: 'Landing', href: '/landing', icon: Sparkles },
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
   { name: 'Todos', href: '/todos', icon: CheckSquare },
   { name: 'Kanban', href: '/kanban', icon: Columns3 },
