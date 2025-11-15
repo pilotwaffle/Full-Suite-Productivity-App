@@ -1,0 +1,277 @@
+{
+  "executiveSummary": {
+    "overallScore": 69,
+    "keyFindings": [
+      "4 navigation issues detected",
+      "Dark mode functionality working correctly",
+      "5/5 accessibility checks passed"
+    ],
+    "priorityRecommendations": [
+      {
+        "priority": "High",
+        "category": "Navigation",
+        "issue": "Navigation highlighting or page content issues",
+        "recommendation": "Ensure proper navigation state management and accurate page titles"
+      },
+      {
+        "priority": "Low",
+        "category": "User Experience",
+        "issue": "Limited error feedback and help system",
+        "recommendation": "Add comprehensive error messages and user guidance"
+      },
+      {
+        "priority": "Low",
+        "category": "Performance",
+        "issue": "Performance optimization opportunities",
+        "recommendation": "Optimize images, implement lazy loading, and reduce bundle size"
+      }
+    ],
+    "testingDate": "2025-11-15T02:16:47.485Z"
+  },
+  "testResults": {
+    "navigation": [
+      {
+        "page": "Dashboard",
+        "href": "/",
+        "navigationHighlight": true,
+        "pageContentCorrect": false,
+        "actualTitle": "Productivity Suite",
+        "status": "PARTIAL",
+        "timestamp": "2025-11-15T02:15:55.134Z"
+      },
+      {
+        "page": "Todos",
+        "href": "/todos",
+        "navigationHighlight": true,
+        "pageContentCorrect": false,
+        "actualTitle": "Productivity Suite",
+        "status": "PARTIAL",
+        "timestamp": "2025-11-15T02:15:58.104Z"
+      },
+      {
+        "page": "Kanban",
+        "href": "/kanban",
+        "navigationHighlight": true,
+        "pageContentCorrect": false,
+        "actualTitle": "Productivity Suite",
+        "status": "PARTIAL",
+        "timestamp": "2025-11-15T02:16:01.396Z"
+      },
+      {
+        "page": "Calendar",
+        "href": "/calendar",
+        "navigationHighlight": true,
+        "pageContentCorrect": false,
+        "actualTitle": "Productivity Suite",
+        "status": "PARTIAL",
+        "timestamp": "2025-11-15T02:16:04.266Z"
+      }
+    ],
+    "functionality": [
+      {
+        "feature": "Dark Mode Toggle",
+        "buttonFound": true,
+        "toggleWorking": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:11.523Z"
+      },
+      {
+        "feature": "Dashboard Quick Actions",
+        "buttonsFound": 9,
+        "navigationWorking": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:13.854Z"
+      },
+      {
+        "feature": "Calendar Navigation",
+        "monthNavigation": true,
+        "todayButton": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:17.358Z"
+      }
+    ],
+    "accessibility": [
+      {
+        "check": "Page has proper heading structure",
+        "passed": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:25.146Z"
+      },
+      {
+        "check": "Navigation links have proper labels",
+        "passed": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:25.321Z"
+      },
+      {
+        "check": "Buttons have accessible labels",
+        "passed": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:25.419Z"
+      },
+      {
+        "check": "Dark mode toggle has proper aria-label",
+        "passed": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:25.430Z"
+      },
+      {
+        "check": "Mobile menu has proper aria-label",
+        "passed": true,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:25.478Z"
+      }
+    ],
+    "responsive": [
+      {
+        "viewport": "Mobile",
+        "dimensions": "375x667",
+        "sidebarVisible": true,
+        "mobileMenuVisible": false,
+        "navigationLinks": 4,
+        "contentOverflow": false,
+        "status": "PASS",
+        "screenshot": "test-screenshots/responsive-mobile-1763172990109.png",
+        "timestamp": "2025-11-15T02:16:30.329Z"
+      },
+      {
+        "viewport": "Tablet",
+        "dimensions": "768x1024",
+        "sidebarVisible": true,
+        "mobileMenuVisible": false,
+        "navigationLinks": 4,
+        "contentOverflow": false,
+        "status": "PASS",
+        "screenshot": "test-screenshots/responsive-tablet-1763172993048.png",
+        "timestamp": "2025-11-15T02:16:33.342Z"
+      },
+      {
+        "viewport": "Desktop",
+        "dimensions": "1920x1080",
+        "sidebarVisible": true,
+        "mobileMenuVisible": false,
+        "navigationLinks": 4,
+        "contentOverflow": false,
+        "status": "PASS",
+        "screenshot": "test-screenshots/responsive-desktop-1763172996014.png",
+        "timestamp": "2025-11-15T02:16:36.495Z"
+      }
+    ],
+    "performance": [
+      {
+        "metrics": {
+          "domContentLoaded": 0.09999999403953552,
+          "loadComplete": 0,
+          "firstPaint": 384,
+          "firstContentfulPaint": 384,
+          "totalLoadTime": 2301.4000000059605
+        },
+        "hoverResponseTime": 284,
+        "status": "PASS",
+        "timestamp": "2025-11-15T02:16:42.321Z"
+      }
+    ],
+    "uxIssues": [
+      {
+        "heuristic": "Visibility of System Status",
+        "status": "PASS",
+        "evaluation": "App provides clear feedback on current page through navigation highlighting and page titles",
+        "issues": [],
+        "timestamp": "2025-11-15T02:16:46.749Z"
+      },
+      {
+        "heuristic": "Match Between System and Real World",
+        "status": "PASS",
+        "evaluation": "Uses familiar terms like \"Dashboard\", \"Todos\", \"Calendar\", \"Kanban\"",
+        "issues": [],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "User Control and Freedom",
+        "status": "PASS",
+        "evaluation": "Easy navigation between sections, dark mode toggle provides user control",
+        "issues": [
+          "No undo/redo functionality observed"
+        ],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "Consistency and Standards",
+        "status": "PASS",
+        "evaluation": "Consistent navigation patterns and color schemes throughout",
+        "issues": [],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "Error Prevention",
+        "status": "PARTIAL",
+        "evaluation": "No obvious error-prone situations in basic navigation",
+        "issues": [
+          "No form validation observed in this basic test"
+        ],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "Recognition Rather Than Recall",
+        "status": "PASS",
+        "evaluation": "Clear navigation labels and icons, dashboard shows overview",
+        "issues": [],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "Flexibility and Efficiency of Use",
+        "status": "PARTIAL",
+        "evaluation": "Dashboard provides quick actions for experienced users",
+        "issues": [
+          "No keyboard shortcuts observed"
+        ],
+        "timestamp": "2025-11-15T02:16:46.750Z"
+      },
+      {
+        "heuristic": "Aesthetic and Minimalist Design",
+        "status": "PASS",
+        "evaluation": "Clean, uncluttered interface with relevant information",
+        "issues": [],
+        "timestamp": "2025-11-15T02:16:46.751Z"
+      },
+      {
+        "heuristic": "Help Users Recognize, Diagnose, and Recover from Errors",
+        "status": "PARTIAL",
+        "evaluation": "No error states encountered in basic testing",
+        "issues": [
+          "Need to test error scenarios like form submissions"
+        ],
+        "timestamp": "2025-11-15T02:16:46.751Z"
+      },
+      {
+        "heuristic": "Help and Documentation",
+        "status": "PARTIAL",
+        "evaluation": "Interface is intuitive enough not to require extensive documentation",
+        "issues": [
+          "No help system or tooltips observed"
+        ],
+        "timestamp": "2025-11-15T02:16:46.751Z"
+      }
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "test-screenshots/nav-dashboard-1763172955135.png",
+      "description": "Navigation to Dashboard"
+    },
+    {
+      "path": "test-screenshots/nav-todos-1763172958104.png",
+      "description": "Navigation to Todos"
+    },
+    {
+      "path": "test-screenshots/nav-kanban-1763172961397.png",
+      "description": "Navigation to Kanban"
+    },
+    {
+      "path": "test-screenshots/nav-calendar-1763172964266.png",
+      "description": "Navigation to Calendar"
+    }
+  ],
+  "detailedAnalysis": {},
+  "implementationRecommendations": []
+}

@@ -2,13 +2,13 @@
 
 import { useState, useMemo } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, Plus, ListTodo } from 'lucide-react'
 import { TodoFilter } from '@/types/todo'
 import { useTodos } from '@/hooks/useTodos'
 import { TodoItem } from './TodoItem'
 import { TodoFilters } from './TodoFilters'
 import { AddTodoForm } from './AddTodoForm'
-import { EmptyState } from '@/components/shared/EmptyState'
+import { EnhancedEmptyState } from '@/components/shared/EnhancedEmptyState'
 import { Button } from '@/components/shared/Button'
 
 export function TodoList() {
@@ -35,6 +35,50 @@ export function TodoList() {
     [todos]
   )
 
+  const getEmptyStateProps = () => {
+    if (filter === 'completed') {
+      return {
+        icon: CheckCircle2,
+        title: 'No completed tasks yet',
+        description: 'Complete some tasks to see them here',
+        secondaryActions: [{
+          label: 'View Active Tasks',
+          href: '/todos?filter=active',
+          icon: ListTodo
+        }]
+      }
+    } else if (filter === 'active') {
+      return {
+        icon: ListTodo,
+        title: 'All tasks completed!',
+        description: 'Great job! You\'ve completed all your tasks.',
+        secondaryActions: [{
+          label: 'View Completed',
+          href: '/todos?filter=completed',
+          icon: CheckCircle2
+        }]
+      }
+    } else {
+      return {
+        icon: ListTodo,
+        title: 'Start organizing your tasks',
+        description: 'Create your first task and begin your productivity journey.',
+        primaryAction: {
+          label: 'Create First Task',
+          icon: Plus,
+          variant: 'primary' as const
+        },
+        secondaryActions: [{
+          label: 'Import from Kanban',
+          href: '/kanban',
+          icon: Plus
+        }]
+      }
+    }
+  }
+
+  const emptyStateProps = getEmptyStateProps()
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -56,21 +100,7 @@ export function TodoList() {
 
       {/* Todo List */}
       {filteredTodos.length === 0 ? (
-        <EmptyState
-          icon={CheckCircle2}
-          title={
-            filter === 'completed'
-              ? 'No completed todos'
-              : filter === 'active'
-              ? 'No active todos'
-              : 'No todos yet'
-          }
-          description={
-            filter === 'all'
-              ? 'Create your first todo to get started!'
-              : undefined
-          }
-        />
+        <EnhancedEmptyState {...emptyStateProps} />
       ) : (
         <div className="space-y-3">
           <AnimatePresence mode="popLayout">
