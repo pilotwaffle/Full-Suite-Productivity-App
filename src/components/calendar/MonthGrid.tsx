@@ -28,7 +28,7 @@ export function MonthGrid({
         {WEEK_DAYS.map((day) => (
           <div
             key={day}
-            className="py-3 text-center text-sm font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-800"
+            className="py-3 text-center text-sm font-semibold text-slate-700 dark:text-slate-200 bg-slate-50 dark:bg-slate-800"
           >
             {day}
           </div>

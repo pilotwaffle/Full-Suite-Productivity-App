@@ -31,13 +31,14 @@ export function DayCell({
     <div
       className={cn(
         'min-h-[100px] border border-slate-200 dark:border-slate-700 p-2 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer transition-colors',
-        !isCurrentMonth && 'bg-slate-50 dark:bg-slate-800/50 text-slate-400 dark:text-slate-600'
+        !isCurrentMonth && 'bg-slate-50 dark:bg-slate-800/50'
       )}
       onClick={() => onDayClick(date)}
     >
       <div
         className={cn(
-          'text-sm font-medium mb-1 text-slate-900 dark:text-slate-100',
+          'text-sm font-medium mb-1 text-slate-900 dark:text-white',
+          !isCurrentMonth && 'text-slate-400 dark:text-slate-500',
           isCurrentDay &&
             'w-7 h-7 flex items-center justify-center rounded-full bg-primary-600 text-white'
         )}
@@ -58,7 +59,7 @@ export function DayCell({
               'hover:opacity-80 transition-opacity',
               event.color
                 ? `bg-[${event.color}] text-white`
-                : 'bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-400'
+                : 'bg-primary-100 dark:bg-primary-900/60 text-primary-700 dark:text-primary-300'
             )}
             style={event.color ? { backgroundColor: event.color } : undefined}
           >
