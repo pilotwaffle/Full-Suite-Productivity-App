@@ -1,11 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { CheckSquare, Columns3, Calendar, ArrowRight } from 'lucide-react'
+import { CheckSquare, Columns3, Calendar, ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/shared/Button'
 import { useTodos } from '@/hooks/useTodos'
 import { useKanban } from '@/hooks/useKanban'
 import { useCalendar } from '@/hooks/useCalendar'
+import { CrossFeatureSync } from '@/components/layout/CrossFeatureSync'
 
 export default function DashboardPage() {
   const todos = useTodos((state) => state.todos)
@@ -20,7 +21,7 @@ export default function DashboardPage() {
 
   const stats = [
     {
-      name: 'Active Todos',
+      name: 'Active Tasks',
       value: activeTodos,
       icon: CheckSquare,
       href: '/todos',
@@ -46,10 +47,10 @@ export default function DashboardPage() {
     <div>
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">
-          Dashboard
+          Productivity Dashboard
         </h1>
         <p className="text-slate-600 dark:text-slate-400">
-          Welcome back! Here's an overview of your productivity.
+          Welcome back! Here's an overview of your productivity and quick access to all tools.
         </p>
       </div>
 
@@ -82,16 +83,20 @@ export default function DashboardPage() {
         ))}
       </div>
 
+      {/* Cross-Feature Sync */}
+      <CrossFeatureSync />
+
       {/* Quick Actions */}
-      <div className="bg-white dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
-        <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4">
+      <div className="mt-8 bg-white dark:bg-slate-900 rounded-lg p-6 border border-slate-200 dark:border-slate-700">
+        <h2 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-primary-600 dark:text-primary-400" />
           Quick Actions
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link href="/todos">
             <Button variant="secondary" className="w-full">
               <CheckSquare className="w-4 h-4 mr-2" />
-              Add Todo
+              Add Task
             </Button>
           </Link>
           <Link href="/kanban">

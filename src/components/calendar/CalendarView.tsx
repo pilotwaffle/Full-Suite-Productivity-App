@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronLeft, ChevronRight, Plus } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, Calendar, Clock, ArrowRight } from 'lucide-react'
 import { useCalendar } from '@/hooks/useCalendar'
 import { CalendarEvent } from '@/types/calendar'
 import { format, addWeeks, subWeeks, addMonths, subMonths } from '@/utils/dates'
@@ -9,6 +9,7 @@ import { WeekView } from './WeekView'
 import { MonthGrid } from './MonthGrid'
 import { EventDialog } from './EventDialog'
 import { Button } from '@/components/shared/Button'
+import { EnhancedEmptyState } from '@/components/shared/EnhancedEmptyState'
 import { cn } from '@/utils/classnames'
 
 type ViewMode = 'month' | 'week'
@@ -62,6 +63,38 @@ export function CalendarView() {
     setEditEvent(null)
     setDialogOpen(true)
   }
+
+  // Check if there are any events in the current view
+  const getEventsInCurrentView = () => {
+    if (viewMode === 'month') {
+      const startOfMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
+      const endOfMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
+
+      return events.filter(event => {
+        const eventStart = new Date(event.startDate)
+        const eventEnd = new Date(event.endDate)
+        return eventStart <= endOfMonth && eventEnd >= startOfMonth
+      })
+    } else {
+      // Week view
+      const startOfWeek = new Date(currentDate)
+      startOfWeek.setDate(currentDate.getDate() - currentDate.getDay())
+      startOfWeek.setHours(0, 0, 0, 0)
+
+      const endOfWeek = new Date(startOfWeek)
+      endOfWeek.setDate(startOfWeek.getDate() + 6)
+      endOfWeek.setHours(23, 59, 59, 999)
+
+      return events.filter(event => {
+        const eventStart = new Date(event.startDate)
+        const eventEnd = new Date(event.endDate)
+        return eventStart <= endOfWeek && eventEnd >= startOfWeek
+      })
+    }
+  }
+
+  const currentViewEvents = getEventsInCurrentView()
+  const hasNoEvents = currentViewEvents.length === 0 && events.length === 0
 
   return (
     <>
@@ -158,20 +191,56 @@ export function CalendarView() {
         </div>
 
         {/* Calendar Grid */}
-        {viewMode === 'month' ? (
-          <MonthGrid
-            currentMonth={currentMonth}
-            events={events}
-            onDayClick={handleDayClick}
-            onEventClick={handleEventClick}
+        {hasNoEvents ? (
+          <EnhancedEmptyState
+            icon={Calendar}
+            title="No events scheduled"
+            description="Start planning your schedule by creating your first event"
+            primaryAction={{
+              label: 'Create Your First Event',
+              icon: Plus,
+              variant: 'primary'
+            }}
+            secondaryActions={[
+              {
+                label: 'Import from Todos',
+                href: '/todos',
+                icon: Clock
+              },
+              {
+                label: 'View Tutorial',
+                href: '/landing',
+                icon: ArrowRight
+              }
+            ]}
           />
         ) : (
-          <WeekView
-            currentDate={currentDate}
-            events={events}
-            onDayClick={handleDayClick}
-            onEventClick={handleEventClick}
-          />
+          <>
+            {viewMode === 'month' ? (
+              <MonthGrid
+                currentMonth={currentMonth}
+                events={events}
+                onDayClick={handleDayClick}
+                onEventClick={handleEventClick}
+              />
+            ) : (
+              <WeekView
+                currentDate={currentDate}
+                events={events}
+                onDayClick={handleDayClick}
+                onEventClick={handleEventClick}
+              />
+            )}
+
+            {/* If there are events but none in current view */}
+            {currentViewEvents.length === 0 && !hasNoEvents && (
+              <div className="mt-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 text-center">
+                <p className="text-sm text-blue-800 dark:text-blue-200">
+                  No events in this {viewMode}. Try navigating to a different time period or create a new event.
+                </p>
+              </div>
+            )}
+          </>
         )}
       </div>
 
